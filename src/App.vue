@@ -104,7 +104,7 @@ export default {
       },
 
       hasScales: null,
-      scaleColors: { white: false },
+      scaleColors: { white: false, brown: false },
 
       hasStem: null,
 
