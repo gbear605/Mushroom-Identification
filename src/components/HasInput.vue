@@ -14,30 +14,37 @@ export default {
   props: {
     label: String
   },
-  data() { return {
-    on: false,
-    off: false,
-  }},
+  data() {
+    return {
+      on: false,
+      off: false
+    };
+  },
+  beforeDestroy() {
+    this.on = false;
+    this.off = false;
+    this.$emit("input", null);
+  },
   methods: {
     clickedOn() {
       this.on = !this.on;
-      if(this.on) {
+      if (this.on) {
         this.off = false;
       }
-      this.$emit('input', this.status())
+      this.$emit("input", this.status());
     },
     clickedOff() {
       this.off = !this.off;
-      if(this.off) {
+      if (this.off) {
         this.on = false;
       }
-      this.$emit('input', this.status())
+      this.$emit("input", this.status());
     },
     status() {
-      if(this.on && !this.off) {
+      if (this.on && !this.off) {
         return true;
       }
-      if(!this.on && this.off) {
+      if (!this.on && this.off) {
         return false;
       }
       return null;
